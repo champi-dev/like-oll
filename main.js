@@ -1,6 +1,6 @@
 likeOll()
 
-function likOAll () {
+function likeOll () {
   let counter = 1
 
   setInterval(() => {
