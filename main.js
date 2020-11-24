@@ -1,8 +1,15 @@
+
+const delay = 30000
+const target = "[aria-label='Me gusta']"
+
 likeOll()
 
 function likeOll () {
-  setInterval(() => {
-    const likeBtns = document.querySelectorAll("[aria-label='Me gusta']")
+  clickManyEls()
+  setInterval(clickManyEls, delay)
+  
+  function clickManyEls () {
+    const likeBtns = document.querySelectorAll(target)
 
     likeBtns.forEach(btn => {
       clickEl({
@@ -11,7 +18,7 @@ function likeOll () {
     })
    
     window.scrollTo(0, window.scrollY + 1000)
-  }, 3000)
+  }
   
   function clickEl({ selector, element }) {
       const el = element || document.querySelector(selector)
