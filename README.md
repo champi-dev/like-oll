@@ -1,9 +1,11 @@
 # like-oll
-> Demo video https://youtu.be/bIQfdu2y4K4
-## Usage
+Demo video https://youtu.be/bIQfdu2y4K4
+
+### Usage
 Copy and paste the contents of any `*.preset.js` to your browser's console
 > Yes, open the dev tools and paste the funky script
-## Tested on
+
+### Tested on
 - [x] Facebook's feed
 - [x] Instagram's feed
 - [x] Tinder's like/dislike screen
