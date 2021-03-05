@@ -1,26 +1,24 @@
-/*  Work in progress - still not working */
+/*  Work in progress  */
 
 (() => {
   initialShare()
-  /* 
+  /*
   *
   *
-  **** Utils 
+  **** Utils
   *
   *
   */
   function initialShare() {
     let els = document.querySelectorAll('span')
-    let shouldStop = false
 
-    els.forEach((element) => {
-      const shouldShare = shouldStop === false && element.innerText === 'Compartir'
+    els.forEach((element, i) => {
+        const shouldShare = element.innerText === 'Compartir'
 
-      if (shouldShare) {
-        shouldStop = true
-        clickEl({ element })
-        initialShareConfirmation()
-      }
+        if (shouldShare) {
+            clickEl({ element })
+            setTimeout(initialShareConfirmation, 1000)
+        }
     })
   }
 
@@ -31,8 +29,8 @@
       const shouldShare = element.innerText === 'Compartir ahora (Personalizado)'
 
       if (shouldShare) {
-        console.log('got you!')
         clickEl({ element })
+        console.log('shared successfully')
       }
     })
   }
@@ -50,22 +48,3 @@
       }))
   }
 })()
-
-/*
-(() => {
-    initialShareConfirmation()
-
-    function initialShareConfirmation() {
-    let els = document.querySelectorAll('span')
-
-    els.forEach((element) => {
-      const shouldShare = element.innerText === 'Compartir ahora (Personalizado)'
-
-      if (shouldShare) {
-        console.log('got you!')
-        clickEl({ element })
-      }
-    })
-  }
-})() 
-*/
