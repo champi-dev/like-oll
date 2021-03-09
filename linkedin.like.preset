@@ -1,14 +1,14 @@
 const delay = 10000
 const target = "[type='like-icon']"
 const scrollBy = 1000
-​
+
 clickManyEls()
 setInterval(clickManyEls, delay)
-​
+
 function clickEl({ selector, element }) {
   const el = element || document.querySelector(selector)
   const { x, y } = el.getBoundingClientRect()
-​
+
   el.dispatchEvent(
     new MouseEvent('click', {
       clientX: x,
@@ -16,21 +16,20 @@ function clickEl({ selector, element }) {
       isTrusted: true,
       bubbles: true
     }))
- }
-​
-function clickManyEls () {
+}
+
+function clickManyEls() {
   const likeBtns = document.querySelectorAll(target)
-​
-​
-    likeBtns.forEach((btn, i) => {
-    if (i + 1 === 10) {return}
-​
-        setTimeout(() => {
-            clickEl({
-            element: likeBtns[i]
-            })
-        }, (delay / 10) * (i + 1))
-    })
-​
+
+  likeBtns.forEach((btn, i) => {
+    if (i + 1 === 10) { return }
+
+    setTimeout(() => {
+      clickEl({
+        element: likeBtns[i]
+      })
+    }, (delay / 10) * (i + 1))
+  })
+
   window.scrollTo(0, window.scrollY + scrollBy)
-} 
+}
