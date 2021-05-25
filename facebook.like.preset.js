@@ -1,9 +1,10 @@
 (() => {
 /* Facebook like preset */
 
-const delay = 1800000 // 30 min
+const delay = 300000 // 5min
+const likeBy = 30
 const target = "[aria-label='Me gusta']"
-const scrollBy = 15000
+const scrollBy = 15000 * likeBy
 
 clickManyEls()
 setInterval(clickManyEls, delay)
@@ -28,6 +29,7 @@ function clickManyEls () {
             clickEl({
             element: likeBtns[i]
             })
+            console.log('like')
         }, 1000 * (i + 1))
     })
   window.scrollTo(0, window.scrollY + scrollBy)
