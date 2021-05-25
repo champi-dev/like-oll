@@ -19,5 +19,6 @@ function clickLikeBtn (btn) {
         clickEl({
             element: btn
         })
+        console.log('like')
     }
 }
