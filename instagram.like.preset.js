@@ -1,4 +1,7 @@
 (() => {
+  const intervalTime = 300000 // 5min
+  const likeBy = 30
+
   function clickEl({ selector, element }) {
   const el = element || document.querySelector(selector)
   const { x, y } = el.getBoundingClientRect()
@@ -18,14 +21,16 @@ const likeAndScroll = () => {
     const currentLikeBtns = getLikeBtns()
 
     currentLikeBtns.forEach((btn, i) => {
-        if (i + 1 === 10) { return }
-        clickEl({ element: btn })
+        setTimeout(() => {
+          if (i + 1 === likeBy) { return }
+          clickEl({ element: btn })
+          console.log('like')
+        }, 1000 * i)
     })
 
     window.scrollTo(0, window.scrollY + 10000)
 }
 
 likeAndScroll()
-setInterval(likeAndScroll, 60000)
-
+setInterval(likeAndScroll, intervalTime)
 })()
