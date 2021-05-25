@@ -28,6 +28,7 @@ function clickManyEls() {
       clickEl({
         element: likeBtns[i]
       })
+      console.log('like')
     }, (delay / 10) * (i + 1))
   })
 
