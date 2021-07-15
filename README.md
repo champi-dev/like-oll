@@ -11,3 +11,5 @@ Copy and paste the contents of any `*.preset.js` to your browser's console
 - [x] Facebook's feed
 - [x] Instagram's feed
 - [x] Tinder's like/dislike screen
+- [x] Tiktok's feed
+- [x] Twitter's feed
