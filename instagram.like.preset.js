@@ -1,6 +1,6 @@
 (() => {
-  const intervalTime = 300000 // 5min
-  const likeBy = 30
+  const intervalTime = 30000 // 30s
+  const likeBy = 2
 
   function clickEl({ selector, element }) {
   const el = element || document.querySelector(selector)
@@ -22,7 +22,7 @@ const likeAndScroll = () => {
 
     currentLikeBtns.forEach((btn, i) => {
         setTimeout(() => {
-          if (i + 1 === likeBy) { return }
+          if (i + 1 >= likeBy) { return }
           clickEl({ element: btn })
           console.log('like')
         }, 1000 * i)
