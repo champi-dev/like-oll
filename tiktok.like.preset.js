@@ -1,12 +1,16 @@
 /* Work in progress */
 
-const hiddenBtns = document.querySelectorAll('[title="like"]')
 const waitFor = 10000
-const likeBy = 10
-const scrollBy = 2000
+const scrollBy = 1000
 
-clickEl({element: hiddenBtns[0].parentElement})
-// setInterval(() => hiddenBtns.forEach((btn, i) => (i <= likeBy) && clickLikeBtn(btn.parentElement)), waitFor) // [TODO]: Fix this line to like and scroll
+const hiddenBtns = document.querySelectorAll('[title="like"]')
+clickLikeBtn(hiddenBtns[0].parentElement)
+
+// setInterval(() => {
+//     const hiddenBtns = document.querySelectorAll('[title="like"]')
+//     hiddenBtns.forEach(btn => clickEl({element: btn.parentElement}))
+//     window.scrollTo(0, window.scrollY + (scrollBy * hiddenBtns.length))
+// }, waitFor)
 
 function clickEl({ selector, element }) {
   const el = element || document.querySelector(selector)
@@ -26,6 +30,5 @@ function clickLikeBtn (btn) {
         element: btn
     })
     console.log('like')
-    window.scrollTo(0, window.scrollY + scrollBy)
     
 }
