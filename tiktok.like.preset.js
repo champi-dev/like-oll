@@ -1,18 +1,17 @@
-(() => {
-/* Tiktok like preset */
+/* Work in progress */
 
-const delay = 120000 // 2min
-const likeBy = 30
-const target = "[data-e2e='like-icon']"
-const scrollBy = 15000 * likeBy
+const hiddenBtns = document.querySelectorAll('[title="like"]')
+const waitFor = 10000
+const likeBy = 10
+const scrollBy = 2000
 
-clickManyEls()
-setInterval(clickManyEls, delay)
-
+clickEl({element: hiddenBtns[0].parentElement})
+// setInterval(() => hiddenBtns.forEach((btn, i) => (i <= likeBy) && clickLikeBtn(btn.parentElement)), waitFor) // [TODO]: Fix this line to like and scroll
 
 function clickEl({ selector, element }) {
   const el = element || document.querySelector(selector)
   const { x, y } = el.getBoundingClientRect()
+
   el.dispatchEvent(
     new MouseEvent('click', {
       clientX: x,
@@ -20,19 +19,13 @@ function clickEl({ selector, element }) {
       isTrusted: true,
       bubbles: true
     }))
- }
+}
 
-function clickManyEls () {
-  const likeBtns = document.querySelectorAll(target)
-    likeBtns.forEach((btn, i) => {
-    if (i + 1 === likeBy) {return} // Only like the first 10
-        setTimeout(() => {
-            clickEl({
-            element: likeBtns[i]
-            })
-            console.log('like')
-        }, 1000 * (i + 1))
+function clickLikeBtn (btn) {
+    clickEl({
+        element: btn
     })
-  window.scrollTo(0, window.scrollY + scrollBy)
-} 
-})()
+    console.log('like')
+    window.scrollTo(0, window.scrollY + scrollBy)
+    
+}
