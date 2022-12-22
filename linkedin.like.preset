@@ -1,5 +1,5 @@
 const delay = 10000
-const target = "[type='like-icon']"
+const target = "[type='thumbs-up-outline']"
 const scrollBy = 1000
 
 clickManyEls()
