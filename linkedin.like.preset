@@ -1,5 +1,10 @@
+/* 
+class="artdeco-button__text"
+*/
+
 const delay = 10000
 const target = "[type='thumbs-up-outline']"
+cpmst targetUpdater = "[class='artdeco-button__text']"
 const scrollBy = 1000
 
 clickManyEls()
@@ -20,6 +25,7 @@ function clickEl({ selector, element }) {
 
 function clickManyEls() {
   const likeBtns = document.querySelectorAll(target)
+  const updateBtns = document.querySelectorAll(targetUpdater)
 
   likeBtns.forEach((btn, i) => {
     if (i + 1 === 10) { return }
@@ -27,6 +33,17 @@ function clickManyEls() {
     setTimeout(() => {
       clickEl({
         element: likeBtns[i]
+      })
+      console.log('like')
+    }, (delay / 10) * (i + 1))
+  })
+
+updateBtns.forEach((btn, i) => {
+    if (i + 1 === 10) { return }
+
+    setTimeout(() => {
+      clickEl({
+        element: updateBtns[i]
       })
       console.log('like')
     }, (delay / 10) * (i + 1))
