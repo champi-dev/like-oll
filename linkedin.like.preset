@@ -4,7 +4,7 @@ class="artdeco-button__text"
 
 const delay = 10000
 const target = "[type='thumbs-up-outline']"
-cpmst targetUpdater = "[class='artdeco-button__text']"
+const targetUpdater = "[class='artdeco-button__text']"
 const scrollBy = 1000
 
 clickManyEls()
